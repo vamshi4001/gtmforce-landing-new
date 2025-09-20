@@ -1,15 +1,3 @@
-<svg width="113" height="113" viewBox="0 0 113 113" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="113" height="113" rx="56.5" fill="#C084FC" fill-opacity="0.1"/>
-<path d="M83.6667 43.6665L61 66.3332L47.6667 52.9998L30.3334 70.3332" stroke="url(#paint0_linear_2069_26)" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M67.6666 43.6665H83.6666V59.6665" stroke="url(#paint1_linear_2069_26)" stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round"/>
-<defs>
-<linearGradient id="paint0_linear_2069_26" x1="30.3334" y1="56.9998" x2="83.6667" y2="56.9998" gradientUnits="userSpaceOnUse">
-<stop stop-color="#A855F7"/>
-<stop offset="1" stop-color="#EC4899"/>
-</linearGradient>
-<linearGradient id="paint1_linear_2069_26" x1="67.6666" y1="51.6665" x2="83.6666" y2="51.6665" gradientUnits="userSpaceOnUse">
-<stop stop-color="#A855F7"/>
-<stop offset="1" stop-color="#EC4899"/>
-</linearGradient>
-</defs>
-</svg>
+version https://git-lfs.github.com/spec/v1
+oid sha256:3f16f0f6e6d5434d676fff08d0b5ee49cc007a3feece9a2073e6a848f8155a00
+size 958
