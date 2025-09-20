@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ThemeSwitcher } from "@/components/theme-switcher";
@@ -13,25 +15,45 @@ import {
   Clock,
   DollarSign,
 } from "lucide-react";
+import { useEffect } from "react";
 
 export default function GTMForcePage() {
+  useEffect(() => {
+    // Apply animations after content loads for better performance
+    const timer = setTimeout(() => {
+      const cards = document.querySelectorAll(
+        ".feature-card, .bento-item, .glow-card"
+      );
+      cards.forEach((card) => {
+        card.classList.add("animate");
+      });
+    }, 100); // Small delay to ensure content is rendered
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="min-h-screen paper-background">
       <div className="constrained-container">
         <nav className="sticky top-0 z-50 theme-nav">
           <div className="max-w-7xl mx-auto responsive-padding">
             <div className="flex justify-between items-center h-20">
-              <div className="flex items-center">
-                <img
-                  src="/gtmforce-logo.png"
-                  alt="GTMForce"
-                  className="h-12 sm:h-14 w-auto logo-dark"
-                />
-                <img
-                  src="/gtm-logo-black.png"
-                  alt="GTMForce"
-                  className="h-12 sm:h-14 w-auto logo-light"
-                />
+              <div className="flex flex-col items-center">
+                <div className="flex items-center my-2">
+                  <img
+                    src="/gtmforce-logo.png"
+                    alt="GTMForce"
+                    className="h-8 sm:h-10 w-auto logo-dark"
+                  />
+                  <img
+                    src="/gtm-logo-black.png"
+                    alt="GTMForce"
+                    className="h-8 sm:h-10 w-auto logo-light"
+                  />
+                </div>
+                <div className="text-xs sm:text-sm text-muted-foreground font-medium">
+                  Ask • Act • Accelerate
+                </div>
               </div>
               <div className="hidden md:flex items-center space-x-4">
                 <ThemeSwitcher />
@@ -355,10 +377,10 @@ export default function GTMForcePage() {
               {/* Left side - Content */}
               <div className="space-y-6 sm:space-y-8">
                 <div>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-balance">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-balance text-foreground">
                     Why GTMForce? Because
                   </h2>
-                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-balance">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-balance text-foreground">
                     <span className="inline-block px-4 py-2 rounded-2xl bg-white text-purple-600 font-bold">
                       Growth
                     </span>{" "}
@@ -398,10 +420,10 @@ export default function GTMForcePage() {
                         <CheckCircle className="h-4 w-4 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-lg sm:text-xl font-semibold text-white mb-1">
+                        <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-1">
                           {item.title}
                         </h3>
-                        <p className="text-base sm:text-lg text-white/80">
+                        <p className="text-base sm:text-lg text-muted-foreground">
                           {item.description}
                         </p>
                       </div>
@@ -410,12 +432,12 @@ export default function GTMForcePage() {
                 </div>
               </div>
 
-              {/* Right side - Generated Image */}
+              {/* Right side - Why GTM Image */}
               <div className="relative">
                 <div className="rounded-3xl overflow-hidden bg-gradient-to-br from-purple-600/20 to-pink-600/20 p-4">
                   <img
-                    src="/placeholder-vsjpr.png"
-                    alt="Analytics Dashboard"
+                    src="/why-gtmforce.jpg"
+                    alt="Why GTMForce"
                     className="w-full h-auto rounded-2xl"
                   />
                 </div>
@@ -439,8 +461,8 @@ export default function GTMForcePage() {
 
             <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
               {/* CMO Card */}
-              <div className="feature-card bg-gradient-to-br from-purple-500/20 to-purple-600/20 border-purple-500/30">
-                <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white text-center py-3 sm:py-4 rounded-t-2xl -m-6 mb-4 sm:mb-6">
+              <div className="feature-card bg-gradient-to-br from-pink-500/5 to-pink-600/5 border-pink-500/30">
+                <div className="bg-gradient-to-r from-pink-500 to-pink-600 text-white text-center py-3 sm:py-4 rounded-t-2xl -m-6 mb-4 sm:mb-6">
                   <h3 className="text-lg sm:text-xl font-bold">CMO</h3>
                 </div>
                 <div className="text-center">
@@ -471,8 +493,8 @@ export default function GTMForcePage() {
               </div>
 
               {/* GTM Executives Card */}
-              <div className="feature-card bg-gradient-to-br from-cyan-500/20 to-cyan-600/20 border-cyan-500/30">
-                <div className="bg-gradient-to-r from-cyan-500 to-cyan-600 text-white text-center py-3 sm:py-4 rounded-t-2xl -m-6 mb-4 sm:mb-6">
+              <div className="feature-card bg-gradient-to-br from-purple-500/5 to-purple-600/5 border-purple-500/30">
+                <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white text-center py-3 sm:py-4 rounded-t-2xl -m-6 mb-4 sm:mb-6">
                   <h3 className="text-lg sm:text-xl font-bold">
                     GTM Executives
                   </h3>
@@ -505,8 +527,8 @@ export default function GTMForcePage() {
               </div>
 
               {/* Sales Leaders Card */}
-              <div className="feature-card bg-gradient-to-br from-purple-500/20 to-purple-600/20 border-purple-500/30">
-                <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white text-center py-3 sm:py-4 rounded-t-2xl -m-6 mb-4 sm:mb-6">
+              <div className="feature-card bg-gradient-to-br from-rose-500/5 to-rose-600/5 border-rose-500/30">
+                <div className="bg-gradient-to-r from-rose-500 to-rose-600 text-white text-center py-3 sm:py-4 rounded-t-2xl -m-6 mb-4 sm:mb-6">
                   <h3 className="text-lg sm:text-xl font-bold">
                     Sales Leaders
                   </h3>
@@ -559,25 +581,25 @@ export default function GTMForcePage() {
 
             <div className="space-y-6 sm:space-y-8">
               {/* Predictive Insights */}
-              <div className="feature-card bg-gradient-to-r from-purple-600/20 to-purple-700/20 border-purple-500/30">
+              <div className="feature-card bg-white/80 border-pink-200 hover:border-pink-400 shadow-xl hover:shadow-2xl transition-all duration-300 backdrop-blur-sm px-8 sm:px-12">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4 sm:space-x-6">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center shadow-xl ring-2 ring-purple-200">
                       <img
                         src="/predictive.svg"
                         alt="Predictive Insights"
-                        className="h-6 w-6 sm:h-8 sm:w-8"
+                        className="h-8 w-8 sm:h-10 sm:w-10 filter brightness-0 invert"
                       />
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold gradient-text">
+                    <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-orange-500 to-purple-600 bg-clip-text text-transparent">
                       Predictive Insights
                     </h3>
                   </div>
                   <div className="text-right space-y-1 sm:space-y-2">
-                    <p className="text-sm sm:text-base text-muted-foreground">
+                    <p className="text-sm sm:text-base text-gray-700 font-medium">
                       "Where will we miss commit?"
                     </p>
-                    <p className="text-sm sm:text-base text-muted-foreground">
+                    <p className="text-sm sm:text-base text-gray-700 font-medium">
                       "Which accounts are likely to churn?"
                     </p>
                   </div>
@@ -585,25 +607,25 @@ export default function GTMForcePage() {
               </div>
 
               {/* Campaign Automation */}
-              <div className="feature-card bg-gradient-to-r from-purple-600/20 to-purple-700/20 border-purple-500/30">
+              <div className="feature-card bg-white/80 border-pink-200 hover:border-pink-400 shadow-xl hover:shadow-2xl transition-all duration-300 backdrop-blur-sm px-8 sm:px-12">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4 sm:space-x-6">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center shadow-xl ring-2 ring-purple-200">
                       <img
                         src="/automation.svg"
                         alt="Campaign Automation"
-                        className="h-6 w-6 sm:h-8 sm:w-8"
+                        className="h-8 w-8 sm:h-10 sm:w-10 filter brightness-0 invert"
                       />
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold gradient-text">
+                    <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-orange-500 to-purple-600 bg-clip-text text-transparent">
                       Campaign Automation
                     </h3>
                   </div>
                   <div className="text-right space-y-1 sm:space-y-2">
-                    <p className="text-sm sm:text-base text-muted-foreground">
+                    <p className="text-sm sm:text-base text-gray-700 font-medium">
                       "Which accounts fit our ICP this week?"
                     </p>
-                    <p className="text-sm sm:text-base text-muted-foreground">
+                    <p className="text-sm sm:text-base text-gray-700 font-medium">
                       "Get more sign-ups this month?"
                     </p>
                   </div>
@@ -611,25 +633,25 @@ export default function GTMForcePage() {
               </div>
 
               {/* Revenue Expansion */}
-              <div className="feature-card bg-gradient-to-r from-purple-600/20 to-purple-700/20 border-purple-500/30">
+              <div className="feature-card bg-white/80 border-pink-200 hover:border-pink-400 shadow-xl hover:shadow-2xl transition-all duration-300 backdrop-blur-sm px-8 sm:px-12">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4 sm:space-x-6">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center shadow-xl ring-2 ring-purple-200">
                       <img
                         src="/revenue.svg"
                         alt="Revenue Expansion"
-                        className="h-6 w-6 sm:h-8 sm:w-8"
+                        className="h-8 w-8 sm:h-10 sm:w-10 filter brightness-0 invert"
                       />
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold gradient-text">
+                    <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-orange-500 to-purple-600 bg-clip-text text-transparent">
                       Revenue Expansion
                     </h3>
                   </div>
                   <div className="text-right space-y-1 sm:space-y-2">
-                    <p className="text-sm sm:text-base text-muted-foreground">
+                    <p className="text-sm sm:text-base text-gray-700 font-medium">
                       "Which free users can we upsell?"
                     </p>
-                    <p className="text-sm sm:text-base text-muted-foreground">
+                    <p className="text-sm sm:text-base text-gray-700 font-medium">
                       "What's driving CAC down?"
                     </p>
                   </div>
@@ -654,7 +676,7 @@ export default function GTMForcePage() {
               <img
                 src="/supercharge.svg"
                 alt="Supercharge GTM"
-                className="h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24"
+                className="h-20 w-20 sm:h-24 sm:w-24 lg:h-32 lg:w-32"
               />
             </div>
             <h2 className="responsive-text-heading font-bold mb-4 sm:mb-6 text-balance">
@@ -676,16 +698,23 @@ export default function GTMForcePage() {
         <footer className="section-secondary border-t py-8 sm:py-12 responsive-padding">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <img
-                src="/gtmforce-logo.png"
-                alt="GTMForce"
-                className="h-12 sm:h-14 w-auto logo-dark"
-              />
-              <img
-                src="/gtm-logo-black.png"
-                alt="GTMForce"
-                className="h-12 sm:h-14 w-auto logo-light"
-              />
+              <div className="flex flex-col items-center">
+                <div className="flex items-center my-2">
+                  <img
+                    src="/gtmforce-logo.png"
+                    alt="GTMForce"
+                    className="h-8 sm:h-10 w-auto logo-dark"
+                  />
+                  <img
+                    src="/gtm-logo-black.png"
+                    alt="GTMForce"
+                    className="h-8 sm:h-10 w-auto logo-light"
+                  />
+                </div>
+                <div className="text-xs sm:text-sm text-muted-foreground font-medium">
+                  Ask • Act • Accelerate
+                </div>
+              </div>
               <div className="text-muted-foreground text-xs sm:text-sm text-center md:text-right">
                 © 2025 GTMForce. All rights reserved. Accelerating growth with
                 AI.

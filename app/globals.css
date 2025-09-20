@@ -362,9 +362,14 @@
   );
 }
 
-/* Adding glowing card effects and better visual hierarchy */
+/* Base glow card styling without animations for faster loading */
 .glow-card {
-  @apply relative overflow-hidden transition-all duration-300;
+  @apply relative overflow-hidden;
+}
+
+/* Animation classes to be applied after content loads */
+.glow-card.animate {
+  @apply transition-all duration-300;
 }
 
 .glow-card::before {
@@ -384,9 +389,14 @@
   opacity: 1;
 }
 
-/* Enhanced card styling for better visual separation */
+/* Base card styling without animations for faster loading */
 .feature-card {
-  @apply relative p-6 rounded-2xl border backdrop-blur-sm transition-all duration-300 hover:scale-105;
+  @apply relative p-6 rounded-2xl border backdrop-blur-sm;
+}
+
+/* Animation classes to be applied after content loads */
+.feature-card.animate {
+  @apply transition-all duration-300 hover:scale-105;
 }
 
 [data-theme="gradient"] .feature-card {
@@ -464,8 +474,14 @@
   @apply grid gap-4 sm:gap-6;
 }
 
+/* Base bento item styling without animations for faster loading */
 .bento-item {
-  @apply relative p-8 rounded-3xl border backdrop-blur-sm transition-all duration-300 hover:scale-[1.02];
+  @apply relative p-8 rounded-3xl border backdrop-blur-sm;
+}
+
+/* Animation classes to be applied after content loads */
+.bento-item.animate {
+  @apply transition-all duration-300 hover:scale-[1.02];
 }
 
 [data-theme="gradient"] .bento-item {
