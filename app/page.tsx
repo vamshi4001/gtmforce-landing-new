@@ -212,39 +212,15 @@ export default function GTMForcePage() {
                 </div>
               </div>
 
-              <div className="feature-card">
-                <div className="text-center">
-                  <div className="responsive-icon-lg mx-auto mb-4 sm:mb-6 rounded-3xl theme-button flex items-center justify-center icon-glow">
-                    <img
-                      src="/gtm-hub.svg"
-                      alt="Integration Hub"
-                      className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12"
-                    />
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-foreground">
-                    Integration Hub
-                  </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8">
-                    Connect with Slack, HubSpot, MoEngage, and 50+ tools
-                  </p>
-                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                    {[
-                      "Slack",
-                      "HubSpot",
-                      "MoEngage",
-                      "Salesforce",
-                      "Marketo",
-                      "Zapier",
-                    ].map((tool, index) => (
-                      <div
-                        key={index}
-                        className="bg-muted/50 rounded-xl p-2 sm:p-3 text-xs sm:text-sm text-muted-foreground border border-border/50"
-                      >
-                        {tool}
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              <div
+                className="feature-card border-0 m-0 overflow-hidden rounded-lg"
+                style={{ padding: 0 }}
+              >
+                <img
+                  src="/gtm-hub.svg"
+                  alt="GTM Hub"
+                  className="w-full h-full object-cover rounded-lg"
+                />
               </div>
             </div>
           </div>
@@ -290,10 +266,10 @@ export default function GTMForcePage() {
                 },
               ].map((item, index) => (
                 <div key={index} className="bento-item text-center group">
-                  <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary/20 mb-3 sm:mb-4">
+                  <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-pink-400 dark:text-primary/40 mb-3 sm:mb-4">
                     {item.step}
                   </div>
-                  <div className="responsive-icon-md mx-auto mb-4 sm:mb-6 rounded-3xl bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center icon-glow">
+                  <div className="responsive-icon-md mx-auto mb-4 sm:mb-6 rounded-3xl bg-gradient-to-br from-pink-100 to-pink-200 dark:from-slate-800 dark:to-slate-900 flex items-center justify-center icon-glow">
                     <img
                       src={item.icon}
                       alt={item.title}
