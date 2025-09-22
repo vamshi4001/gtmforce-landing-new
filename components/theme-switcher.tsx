@@ -37,7 +37,7 @@ const themes: Record<Theme, ThemeConfig> = {
 };
 
 export function ThemeSwitcher() {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light-minimal");
 
   useEffect(() => {
     // Apply theme to document
@@ -54,13 +54,17 @@ export function ThemeSwitcher() {
     <div className="flex">
       <button
         onClick={() => handleThemeChange("gradient")}
-        className={`p-2 rounded-md transition-all duration-200 ${
+        className={`p-2 rounded-md transition-all duration-200 relative group ${
           theme === "gradient"
             ? "text-primary-foreground"
             : "text-muted-foreground hover:text-foreground"
         }`}
         title="Modern Gradient"
       >
+        {/* Tooltip */}
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+          Modern Gradient
+        </div>
         <svg
           className="w-4 h-4"
           viewBox="0 0 24 24"
@@ -86,13 +90,17 @@ export function ThemeSwitcher() {
       </button>
       <button
         onClick={() => handleThemeChange("dark")}
-        className={`p-2 rounded-md transition-all duration-200 ${
+        className={`p-2 rounded-md transition-all duration-200 relative group ${
           theme === "dark"
             ? "text-primary-foreground"
             : "text-muted-foreground hover:text-foreground"
         }`}
         title="Flat Dark Mode"
       >
+        {/* Tooltip */}
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+          Flat Dark Mode
+        </div>
         <svg
           className="w-4 h-4"
           viewBox="0 0 24 24"
@@ -105,13 +113,17 @@ export function ThemeSwitcher() {
       </button>
       <button
         onClick={() => handleThemeChange("light")}
-        className={`p-2 rounded-md transition-all duration-200 ${
+        className={`p-2 rounded-md transition-all duration-200 relative group ${
           theme === "light"
             ? "text-primary-foreground"
             : "text-muted-foreground hover:text-foreground"
         }`}
-        title="Light Minimalist"
+        title="Light Color"
       >
+        {/* Tooltip */}
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+          Light Color
+        </div>
         <svg
           className="w-4 h-4"
           viewBox="0 0 24 24"
@@ -132,13 +144,17 @@ export function ThemeSwitcher() {
       </button>
       <button
         onClick={() => handleThemeChange("light-minimal")}
-        className={`p-2 rounded-md transition-all duration-200 ${
+        className={`p-2 rounded-md transition-all duration-200 relative group ${
           theme === "light-minimal"
             ? "text-primary-foreground"
             : "text-muted-foreground hover:text-foreground"
         }`}
-        title="Light Minimal"
+        title="Light Flat"
       >
+        {/* Tooltip */}
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-50">
+          Light Flat
+        </div>
         <svg
           className="w-4 h-4"
           viewBox="0 0 24 24"

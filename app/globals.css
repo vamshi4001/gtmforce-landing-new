@@ -713,6 +713,11 @@
   color: #4b5563 !important;
 }
 
+/* Keep tooltip text white in light-minimal theme */
+[data-theme="light-minimal"] .bg-black .text-white {
+  color: #ffffff !important;
+}
+
 /* GTM Silos section cards for light-minimal theme */
 [data-theme="light-minimal"] .bg-gradient-to-br.from-purple-500.to-pink-500 {
   background: #f3f4f6 !important;
