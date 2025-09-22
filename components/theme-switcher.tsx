@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Palette } from "lucide-react";
 
-export type Theme = "gradient" | "dark" | "light";
+export type Theme = "gradient" | "dark" | "light" | "light-minimal";
 
 interface ThemeConfig {
   name: string;
@@ -30,6 +30,10 @@ const themes: Record<Theme, ThemeConfig> = {
     name: "Light Minimalist",
     description: "Clean light interface",
   },
+  "light-minimal": {
+    name: "Light Minimal",
+    description: "Black text, no gradients",
+  },
 };
 
 export function ThemeSwitcher() {
@@ -47,13 +51,13 @@ export function ThemeSwitcher() {
   };
 
   return (
-    <div className="flex bg-muted/20 rounded-lg p-1">
+    <div className="flex">
       <button
         onClick={() => handleThemeChange("gradient")}
         className={`p-2 rounded-md transition-all duration-200 ${
           theme === "gradient"
-            ? "bg-primary text-primary-foreground shadow-sm"
-            : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+            ? "text-primary-foreground"
+            : "text-muted-foreground hover:text-foreground"
         }`}
         title="Modern Gradient"
       >
@@ -84,8 +88,8 @@ export function ThemeSwitcher() {
         onClick={() => handleThemeChange("dark")}
         className={`p-2 rounded-md transition-all duration-200 ${
           theme === "dark"
-            ? "bg-primary text-primary-foreground shadow-sm"
-            : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+            ? "text-primary-foreground"
+            : "text-muted-foreground hover:text-foreground"
         }`}
         title="Flat Dark Mode"
       >
@@ -103,8 +107,8 @@ export function ThemeSwitcher() {
         onClick={() => handleThemeChange("light")}
         className={`p-2 rounded-md transition-all duration-200 ${
           theme === "light"
-            ? "bg-primary text-primary-foreground shadow-sm"
-            : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+            ? "text-primary-foreground"
+            : "text-muted-foreground hover:text-foreground"
         }`}
         title="Light Minimalist"
       >
@@ -123,6 +127,33 @@ export function ThemeSwitcher() {
             rx="2"
             fill="#ffffff"
             stroke="#e5e7eb"
+          />
+        </svg>
+      </button>
+      <button
+        onClick={() => handleThemeChange("light-minimal")}
+        className={`p-2 rounded-md transition-all duration-200 ${
+          theme === "light-minimal"
+            ? "text-primary-foreground"
+            : "text-muted-foreground hover:text-foreground"
+        }`}
+        title="Light Minimal"
+      >
+        <svg
+          className="w-4 h-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <rect
+            x="3"
+            y="3"
+            width="18"
+            height="18"
+            rx="2"
+            fill="#000000"
+            stroke="#000000"
           />
         </svg>
       </button>

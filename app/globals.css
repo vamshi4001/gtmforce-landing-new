@@ -210,6 +210,10 @@
   [data-theme="light"] body {
     background: linear-gradient(135deg, #fef7f0 0%, #fce7f3 50%, #fef3c7 100%);
   }
+
+  [data-theme="light-minimal"] body {
+    background: #ffffff;
+  }
 }
 
 /* Updated gradient utilities to be theme-aware */
@@ -218,6 +222,16 @@
 }
 
 [data-theme="gradient"] .gradient-text {
+  @apply bg-gradient-to-r from-pink-500 to-purple-500;
+}
+
+/* Special gradient text for white text on background images */
+.text-white .gradient-text {
+  @apply bg-gradient-to-r from-pink-400 to-purple-400;
+}
+
+/* Gradient text for dark text on light backgrounds (mobile) */
+.text-foreground .gradient-text {
   @apply bg-gradient-to-r from-pink-500 to-purple-500;
 }
 
@@ -230,6 +244,14 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+[data-theme="light-minimal"] .gradient-text {
+  color: #000000;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
 }
 
 .gradient-card {
@@ -281,6 +303,44 @@
   transform: translateY(-1px);
 }
 
+[data-theme="light-minimal"] .theme-button {
+  background: #000000;
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light-minimal"] .theme-button:hover {
+  background: #333333;
+  box-shadow: 0 8px 25px 0 rgba(0, 0, 0, 0.35);
+  transform: translateY(-1px);
+}
+
+[data-theme="light-minimal"] .theme-button {
+  color: #ffffff !important;
+}
+
+[data-theme="light-minimal"] .theme-button:hover {
+  color: #ffffff !important;
+}
+
+/* All button text in light-minimal theme */
+[data-theme="light-minimal"] button {
+  color: inherit;
+}
+
+[data-theme="light-minimal"] .theme-button,
+[data-theme="light-minimal"] .theme-button * {
+  color: #ffffff !important;
+}
+
+[data-theme="light-minimal"] button[class*="theme-button"] {
+  color: #ffffff !important;
+}
+
+[data-theme="light-minimal"] button[class*="theme-button"] * {
+  color: #ffffff !important;
+}
+
 /* Theme-specific navigation styling */
 .theme-nav {
   @apply backdrop-blur-sm border-b;
@@ -308,6 +368,13 @@
   backdrop-filter: blur(16px);
   box-shadow: 0 1px 3px 0 rgba(236, 72, 153, 0.1),
     0 1px 2px 0 rgba(236, 72, 153, 0.05);
+}
+
+[data-theme="light-minimal"] .theme-nav {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 /* Section differentiation - subtle alternating backgrounds */
@@ -360,6 +427,39 @@
     rgba(252, 231, 243, 0.4) 0%,
     rgba(254, 243, 199, 0.6) 100%
   );
+}
+
+[data-theme="light-minimal"] .section-primary {
+  background: #ffffff;
+}
+
+[data-theme="light-minimal"] .section-secondary {
+  background: #f8f9fa;
+}
+
+/* Textured section backgrounds */
+.section-textured-primary {
+  background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(252, 231, 243, 0.6) 100%
+    ),
+    url("/purple-texture.avif");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.section-textured-secondary {
+  background: linear-gradient(
+      135deg,
+      rgba(252, 231, 243, 0.4) 0%,
+      rgba(254, 243, 199, 0.6) 100%
+    ),
+    url("/blue-texture.avif");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
 }
 
 /* Base glow card styling without animations for faster loading */
@@ -469,6 +569,18 @@
     0 16px 32px -8px rgba(236, 72, 153, 0.1);
 }
 
+[data-theme="light-minimal"] .feature-card {
+  @apply bg-white border-gray-200 hover:border-gray-300;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light-minimal"] .feature-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15),
+    0 16px 32px -8px rgba(0, 0, 0, 0.1);
+}
+
 /* Bento grid styling */
 .bento-grid {
   @apply grid gap-4 sm:gap-6;
@@ -552,6 +664,148 @@
 [data-theme="light"] .bento-item:hover {
   box-shadow: 0 32px 64px -12px rgba(236, 72, 153, 0.15),
     0 16px 32px -8px rgba(236, 72, 153, 0.1);
+}
+
+[data-theme="light-minimal"] .bento-item {
+  @apply bg-white border-gray-200 hover:border-gray-300;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.1),
+    0 4px 8px -2px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light-minimal"] .bento-item:hover {
+  box-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.15),
+    0 16px 32px -8px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo visibility for light-minimal theme */
+[data-theme="light-minimal"] .logo-dark {
+  display: none;
+}
+
+[data-theme="light-minimal"] .logo-light {
+  display: block;
+}
+
+/* Text colors for light-minimal theme */
+[data-theme="light-minimal"] {
+  --foreground: #1f2937;
+  --muted-foreground: #6b7280;
+}
+
+[data-theme="light-minimal"] .text-foreground {
+  color: #1f2937 !important;
+}
+
+[data-theme="light-minimal"] .text-muted-foreground {
+  color: #6b7280 !important;
+}
+
+[data-theme="light-minimal"] .text-white {
+  color: #1f2937 !important;
+}
+
+[data-theme="light-minimal"] .text-white\/90 {
+  color: #374151 !important;
+}
+
+[data-theme="light-minimal"] .text-white\/80 {
+  color: #4b5563 !important;
+}
+
+/* GTM Silos section cards for light-minimal theme */
+[data-theme="light-minimal"] .bg-gradient-to-br.from-purple-500.to-pink-500 {
+  background: #f3f4f6 !important;
+  border: 1px solid #d1d5db !important;
+}
+
+[data-theme="light-minimal"] .bg-gradient-to-br.from-purple-500.to-pink-500 h3 {
+  color: #1f2937 !important;
+}
+
+[data-theme="light-minimal"] .bg-gradient-to-br.from-purple-500.to-pink-500 p {
+  color: #6b7280 !important;
+}
+
+[data-theme="light-minimal"]
+  .bg-gradient-to-br.from-purple-500.to-pink-500
+  .text-white {
+  color: #1f2937 !important;
+}
+
+[data-theme="light-minimal"]
+  .bg-gradient-to-br.from-purple-500.to-pink-500
+  .text-white\/90 {
+  color: #6b7280 !important;
+}
+
+/* Central image card for light-minimal theme */
+[data-theme="light-minimal"] .bg-blue-500 {
+  background: #3b82f6 !important;
+  border: 1px solid #2563eb !important;
+}
+
+[data-theme="light-minimal"] .bg-blue-500 .text-white {
+  color: #ffffff !important;
+}
+
+[data-theme="light-minimal"] .bg-blue-500 .text-white\/90 {
+  color: #f3f4f6 !important;
+}
+
+[data-theme="light-minimal"] .bg-blue-500 h3 {
+  color: #ffffff !important;
+}
+
+[data-theme="light-minimal"] .bg-blue-500 p {
+  color: #f3f4f6 !important;
+}
+
+/* Textured backgrounds for cards and sections */
+.textured-purple {
+  background-image: url("/purple-texture.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.textured-blue {
+  background-image: url("/blue-texture.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.textured-black {
+  background-image: url("/black-texture.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* GTM Silos cards with textures */
+.gradient-card-purple {
+  background: linear-gradient(
+      135deg,
+      rgba(147, 51, 234, 0.9),
+      rgba(236, 72, 153, 0.9)
+    ),
+    url("/purple-texture.avif");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.gradient-card-blue {
+  background: linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.9),
+      rgba(37, 99, 235, 0.9)
+    ),
+    url("/blue-texture.avif");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
 }
 
 /* Icon containers with glow effects */
@@ -641,11 +895,50 @@
   color: #ffffff;
 }
 
-/* Constrained container without ruler borders */
+/* Constrained container with groove-like border on larger screens */
 .constrained-container {
   max-width: 1400px;
   margin: 0 auto;
   position: relative;
+}
+
+/* Groove-like border for constrained-container on larger screens */
+@media (min-width: 1400px) {
+  .constrained-container {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.05),
+      inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  }
+
+  /* Theme-specific groove borders */
+  [data-theme="gradient"] .constrained-container {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.05),
+      inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  }
+
+  [data-theme="dark"] .constrained-container {
+    border-left: 1px solid rgba(168, 85, 247, 0.2);
+    border-right: 1px solid rgba(168, 85, 247, 0.2);
+    box-shadow: inset 1px 0 0 rgba(168, 85, 247, 0.1),
+      inset -1px 0 0 rgba(0, 0, 0, 0.2);
+  }
+
+  [data-theme="light"] .constrained-container {
+    border-left: 1px solid rgba(236, 72, 153, 0.2);
+    border-right: 1px solid rgba(236, 72, 153, 0.2);
+    box-shadow: inset 1px 0 0 rgba(236, 72, 153, 0.1),
+      inset -1px 0 0 rgba(0, 0, 0, 0.05);
+  }
+
+  [data-theme="light-minimal"] .constrained-container {
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.05),
+      inset -1px 0 0 rgba(0, 0, 0, 0.05);
+  }
 }
 
 /* Theme switcher dropdown fixes */

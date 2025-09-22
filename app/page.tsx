@@ -36,7 +36,7 @@ export default function GTMForcePage() {
     <div className="min-h-screen paper-background">
       <div className="constrained-container">
         <nav className="sticky top-0 z-50 theme-nav">
-          <div className="max-w-7xl mx-auto responsive-padding">
+          <div className="responsive-padding">
             <div className="flex justify-between items-center h-20">
               <div className="flex flex-col items-center">
                 <div className="flex items-center my-2">
@@ -83,7 +83,7 @@ export default function GTMForcePage() {
           </div>
         </nav>
 
-        <section className="section-primary py-12 sm:py-16 lg:py-24 responsive-padding">
+        <section className="section-primary py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             <Badge className="mb-4 sm:mb-6 bg-primary/20 text-primary border-primary/30 text-xs sm:text-sm">
               AI-Native Strategy OS
@@ -108,7 +108,7 @@ export default function GTMForcePage() {
           </div>
         </section>
 
-        <section className="section-secondary py-12 sm:py-16 lg:py-24 responsive-padding">
+        <section className="section-textured-secondary py-12 sm:py-16 lg:py-24 responsive-padding">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="responsive-text-heading font-bold mb-4 sm:mb-6 text-balance">
@@ -116,132 +116,174 @@ export default function GTMForcePage() {
                 <span className="gradient-text">Market Opportunities?</span>
               </h2>
             </div>
-            <div className="bento-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-              {[
-                {
-                  icon: Target,
-                  title: "Tools",
-                  description:
-                    "Fragmented GTM stack leads to lost opportunities",
-                  color: "text-pink-400",
-                },
-                {
-                  icon: Clock,
-                  title: "Time",
-                  description: "Teams waste days aligning strategy",
-                  color: "text-purple-400",
-                },
-                {
-                  icon: TrendingUp,
-                  title: "Traction",
-                  description: "Missed revenue milestones",
-                  color: "text-cyan-400",
-                },
-                {
-                  icon: Users,
-                  title: "Team",
-                  description: "Everyone feels like they're spinning wheels",
-                  color: "text-pink-400",
-                },
-                {
-                  icon: Cpu,
-                  title: "Tech",
-                  description: "Legacy, siloed tools slow execution",
-                  color: "text-purple-400",
-                },
-                {
-                  icon: DollarSign,
-                  title: "Cost",
-                  description: "Inefficient processes drain resources",
-                  color: "text-cyan-400",
-                },
-              ].map((item, index) => (
-                <div key={index} className="bento-item group">
-                  <div
-                    className={`responsive-icon-sm mx-auto mb-4 sm:mb-6 rounded-2xl bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center icon-glow`}
-                  >
-                    <item.icon
-                      className={`h-4 w-4 sm:h-6 sm:w-6 lg:h-8 lg:w-8 ${item.color}`}
-                    />
+            {/* Grid Layout matching screenshot */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              {/* Tools Card - Gradient */}
+              <div className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl p-6 text-white">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-xl lg:text-2xl font-bold">Tools</h3>
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                    <Target className="h-5 w-5 lg:h-6 lg:w-6 text-white" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-foreground text-center">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-muted-foreground text-center text-pretty">
-                    {item.description}
-                  </p>
                 </div>
-              ))}
+                <p className="text-white/90 text-sm lg:text-base">
+                  Fragmented GTM across multiple platforms.
+                </p>
+              </div>
+
+              {/* Time Card - White */}
+              <div className="bg-white rounded-2xl p-6 border border-gray-200">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-xl lg:text-2xl font-bold text-purple-600">
+                    Time
+                  </h3>
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <Clock className="h-5 w-5 lg:h-6 lg:w-6 text-purple-600" />
+                  </div>
+                </div>
+                <p className="text-gray-700 text-sm lg:text-base">
+                  Execution delaying revenue capture.
+                </p>
+              </div>
+
+              {/* Central Image Card */}
+              <div className="bg-blue-500 rounded-2xl p-6 text-white relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-700"></div>
+                <div className="relative z-10">
+                  <div className="text-center">
+                    <div className="w-16 h-16 lg:w-20 lg:h-20 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+                      <Users className="h-8 w-8 lg:h-10 lg:w-10 text-white" />
+                    </div>
+                    <h3 className="text-lg lg:text-xl font-semibold mb-2">
+                      Stressed Developer
+                    </h3>
+                    <p className="text-white/90 text-sm lg:text-base">
+                      Complex integrations causing delays
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Traction Card - Gradient */}
+              <div className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl p-6 text-white">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-xl lg:text-2xl font-bold">Traction</h3>
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                    <TrendingUp className="h-5 w-5 lg:h-6 lg:w-6 text-white" />
+                  </div>
+                </div>
+                <p className="text-white/90 text-sm lg:text-base">
+                  Siloed systems hiding pipeline leaks.
+                </p>
+              </div>
+            </div>
+
+            {/* Bottom Row with Quote */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Team Card - Gradient */}
+              <div className="bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl p-6 text-white">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-xl lg:text-2xl font-bold">Team</h3>
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                    <Users className="h-5 w-5 lg:h-6 lg:w-6 text-white" />
+                  </div>
+                </div>
+                <p className="text-white/90 text-sm lg:text-base">
+                  Campaign feels like a cross-functional project.
+                </p>
+              </div>
+
+              {/* Central Quote */}
+              <div className="bg-white rounded-2xl p-8 border border-gray-200 flex flex-col justify-center">
+                <blockquote className="text-lg lg:text-xl italic text-gray-800 mb-4 text-center">
+                  "Every week feels like we're stitching data instead of
+                  building pipeline."
+                </blockquote>
+                <cite className="text-purple-600 text-sm lg:text-base text-center font-medium">
+                  - Growth Lead @ SaaS Startup
+                </cite>
+              </div>
+
+              {/* Tech Card - White */}
+              <div className="bg-white rounded-2xl p-6 border border-gray-200">
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-xl lg:text-2xl font-bold text-purple-600">
+                    Tech
+                  </h3>
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <Cpu className="h-5 w-5 lg:h-6 lg:w-6 text-purple-600" />
+                  </div>
+                </div>
+                <p className="text-gray-700 text-sm lg:text-base">
+                  AI stays untapped due to complex integrations.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
-        <section
-          id="solution"
-          className="section-primary py-12 sm:py-16 lg:py-24 responsive-padding"
-        >
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12 sm:mb-16">
-              <h2 className="responsive-text-heading font-bold mb-6 sm:mb-8 text-balance">
-                <span className="gradient-text">Unified GTM Solution</span>
+        <section id="solution" className="relative overflow-hidden">
+          {/* Desktop: Full height with background image */}
+          <div
+            className="hidden lg:block relative min-h-[100vh] flex items-start justify-center pt-32"
+            style={{
+              backgroundImage: "url('/gtm-hub.svg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
+              <h2
+                className="responsive-text-heading font-bold mb-6 sm:mb-8 text-balance"
+                style={{ color: "white" }}
+              >
+                <span
+                  className="gradient-text"
+                  style={{
+                    background: "linear-gradient(to right, #f472b6, #a855f7)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  Unified GTM Solution
+                </span>
               </h2>
-              <p className="text-lg sm:text-xl text-muted-foreground mb-8 sm:mb-12 max-w-4xl mx-auto text-pretty">
+              <p
+                className="text-lg sm:text-xl mb-16 sm:mb-20 max-w-4xl mx-auto text-pretty"
+                style={{ color: "rgba(255, 255, 255, 0.9)" }}
+              >
                 An AI-native execution engine that unifies GTM teams, shortens
                 time-to-market, and automates execution — closing the impact
                 loop of go-to-market strategy.
               </p>
             </div>
+          </div>
 
-            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-start">
-              <div className="feature-card">
-                <div className="space-y-4 sm:space-y-6">
-                  {[
-                    {
-                      icon: CheckCircle,
-                      text: "Seamless integration with existing tools",
-                      color: "text-green-400",
-                    },
-                    {
-                      icon: Zap,
-                      text: "Real-time strategy optimization",
-                      color: "text-yellow-400",
-                    },
-                    {
-                      icon: Rocket,
-                      text: "Automated campaign execution",
-                      color: "text-pink-400",
-                    },
-                    {
-                      icon: BarChart3,
-                      text: "Predictive analytics and insights",
-                      color: "text-purple-400",
-                    },
-                  ].map((feature, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center space-x-3 sm:space-x-4"
-                    >
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center icon-glow">
-                        <feature.icon
-                          className={`h-4 w-4 sm:h-5 sm:w-5 ${feature.color}`}
-                        />
-                      </div>
-                      <span className="text-sm sm:text-base text-muted-foreground">
-                        {feature.text}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+          {/* Mobile: Text above, image below */}
+          <div className="lg:hidden">
+            {/* Text section */}
+            <div className="py-12 sm:py-16 px-4 sm:px-6">
+              <div className="text-center">
+                <h2 className="responsive-text-heading font-bold mb-6 sm:mb-8 text-balance text-foreground">
+                  <span className="gradient-text">Unified GTM Solution</span>
+                </h2>
+                <p className="text-lg sm:text-xl text-muted-foreground mb-8 sm:mb-12 max-w-4xl mx-auto text-pretty">
+                  An AI-native execution engine that unifies GTM teams, shortens
+                  time-to-market, and automates execution — closing the impact
+                  loop of go-to-market strategy.
+                </p>
               </div>
+            </div>
 
-              <div
-                className="feature-card border-0 m-0 overflow-hidden rounded-lg"
-                style={{ padding: 0 }}
-              >
+            {/* Image section */}
+            <div className="px-4 sm:px-6 pb-12 sm:pb-16">
+              <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src="/gtm-hub.svg"
                   alt="GTM Hub"
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-auto object-cover"
                 />
               </div>
             </div>
@@ -250,9 +292,9 @@ export default function GTMForcePage() {
 
         <section
           id="how-it-works"
-          className="section-secondary py-12 sm:py-16 lg:py-24 responsive-padding"
+          className="section-secondary py-12 sm:py-16 lg:py-24 "
         >
-          <div className="max-w-7xl mx-auto">
+          <div>
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="responsive-text-heading font-bold mb-4 sm:mb-6 text-balance">
                 How it works?{" "}
@@ -320,9 +362,9 @@ export default function GTMForcePage() {
 
         <section
           id="impact"
-          className="section-primary py-12 sm:py-16 lg:py-24 responsive-padding"
+          className="section-primary py-12 sm:py-16 lg:py-24 "
         >
-          <div className="max-w-7xl mx-auto">
+          <div>
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="responsive-text-heading font-bold mb-4 sm:mb-6 text-balance">
                 <span className="gradient-text">Autonomous GTM Quantified</span>
@@ -446,8 +488,8 @@ export default function GTMForcePage() {
           </div>
         </section>
 
-        <section className="section-primary py-12 sm:py-16 lg:py-24 responsive-padding">
-          <div className="max-w-4xl mx-auto text-center">
+        <section className="section-primary py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
             <h2 className="responsive-text-heading font-bold mb-4 sm:mb-6 text-balance">
               Built for Leaders who Command{" "}
               <span className="gradient-text">
@@ -462,7 +504,7 @@ export default function GTMForcePage() {
             <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
               {/* CMO Card */}
               <div className="feature-card bg-gradient-to-br from-pink-500/5 to-pink-600/5 border-pink-500/30">
-                <div className="bg-gradient-to-r from-pink-500 to-pink-600 text-white text-center py-3 sm:py-4 rounded-t-2xl -m-6 mb-4 sm:mb-6">
+                <div className="bg-gradient-to-r from-pink-400 to-pink-500 text-white text-center py-3 sm:py-4 rounded-t-2xl -m-6 mb-4 sm:mb-6">
                   <h3 className="text-lg sm:text-xl font-bold">CMO</h3>
                 </div>
                 <div className="text-center">
@@ -494,7 +536,7 @@ export default function GTMForcePage() {
 
               {/* GTM Executives Card */}
               <div className="feature-card bg-gradient-to-br from-purple-500/5 to-purple-600/5 border-purple-500/30">
-                <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white text-center py-3 sm:py-4 rounded-t-2xl -m-6 mb-4 sm:mb-6">
+                <div className="bg-gradient-to-r from-purple-400 to-purple-500 text-white text-center py-3 sm:py-4 rounded-t-2xl -m-6 mb-4 sm:mb-6">
                   <h3 className="text-lg sm:text-xl font-bold">
                     GTM Executives
                   </h3>
@@ -528,7 +570,7 @@ export default function GTMForcePage() {
 
               {/* Sales Leaders Card */}
               <div className="feature-card bg-gradient-to-br from-rose-500/5 to-rose-600/5 border-rose-500/30">
-                <div className="bg-gradient-to-r from-rose-500 to-rose-600 text-white text-center py-3 sm:py-4 rounded-t-2xl -m-6 mb-4 sm:mb-6">
+                <div className="bg-gradient-to-r from-rose-400 to-rose-500 text-white text-center py-3 sm:py-4 rounded-t-2xl -m-6 mb-4 sm:mb-6">
                   <h3 className="text-lg sm:text-xl font-bold">
                     Sales Leaders
                   </h3>
@@ -564,7 +606,7 @@ export default function GTMForcePage() {
         </section>
 
         {/* Your GTM Brain section */}
-        <section className="section-secondary py-12 sm:py-16 lg:py-24 responsive-padding">
+        <section className="section-textured-primary py-12 sm:py-16 lg:py-24 responsive-padding">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="responsive-text-heading font-bold mb-4 sm:mb-6 text-balance">
@@ -584,7 +626,7 @@ export default function GTMForcePage() {
               <div className="feature-card bg-white/80 border-pink-200 hover:border-pink-400 shadow-xl hover:shadow-2xl transition-all duration-300 backdrop-blur-sm px-8 sm:px-12">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4 sm:space-x-6">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center shadow-xl ring-2 ring-purple-200">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center shadow-xl ring-2 ring-purple-200 flex-shrink-0">
                       <img
                         src="/predictive.svg"
                         alt="Predictive Insights"
@@ -610,7 +652,7 @@ export default function GTMForcePage() {
               <div className="feature-card bg-white/80 border-pink-200 hover:border-pink-400 shadow-xl hover:shadow-2xl transition-all duration-300 backdrop-blur-sm px-8 sm:px-12">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4 sm:space-x-6">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center shadow-xl ring-2 ring-purple-200">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center shadow-xl ring-2 ring-purple-200 flex-shrink-0">
                       <img
                         src="/automation.svg"
                         alt="Campaign Automation"
@@ -636,7 +678,7 @@ export default function GTMForcePage() {
               <div className="feature-card bg-white/80 border-pink-200 hover:border-pink-400 shadow-xl hover:shadow-2xl transition-all duration-300 backdrop-blur-sm px-8 sm:px-12">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4 sm:space-x-6">
-                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center shadow-xl ring-2 ring-purple-200">
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center shadow-xl ring-2 ring-purple-200 flex-shrink-0">
                       <img
                         src="/revenue.svg"
                         alt="Revenue Expansion"
